@@ -1,0 +1,1423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230612 17:12:24.588" rpa="false" schemaversion="3">
+<suite id="s1" name="Fiber main" source="C:\Users\Kirnesh.Walunj\OneDrive - Reliance Corporate IT Park Limited\Desktop\Demo Jio.com automation\Tests\Fiber\Fiber_main.robot">
+<kw name="Begin Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.jio.com/</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230612 17:12:26.084" level="INFO">Opening browser 'edge' to base url 'https://www.jio.com/'.</msg>
+<msg timestamp="20230612 17:12:26.104" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230612 17:12:26.083" endtime="20230612 17:12:34.346"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230612 17:12:34.346" endtime="20230612 17:12:34.868"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:26.082" endtime="20230612 17:12:34.868"/>
+</kw>
+<test id="s1-t1" name="Quarterly Plan Page UI verification" line="17">
+<kw name="Verifying Content of Navbar" library="Homie">
+<kw name="Reading Data of Home Page from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>C:/Users/Kirnesh.Walunj/OneDrive - Reliance Corporate IT Park Limited/Desktop/Demo Jio.com automation/Resources/workbook.xlsx</arg>
+<arg>Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:34.873" endtime="20230612 17:12:34.896"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${navbarcontent}</var>
+<arg>1</arg>
+<arg>1</arg>
+<arg>Sheet1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:34.897" level="INFO">${navbarcontent} = Mobile;True 5G;JioFiber;Business;Shop;Apps;Support</msg>
+<status status="PASS" starttime="20230612 17:12:34.896" endtime="20230612 17:12:34.897"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:34.897" endtime="20230612 17:12:34.898"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${navbarcontent}</var>
+<arg>${navbarcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:34.899" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230612 17:12:34.899" endtime="20230612 17:12:34.899"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:34.900" endtime="20230612 17:12:34.901"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<arg>${navbarcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:34.902" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230612 17:12:34.901" endtime="20230612 17:12:34.902"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:34.871" endtime="20230612 17:12:34.902"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:34.908" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[1]' contains exact text 'Mobile'.</msg>
+<status status="PASS" starttime="20230612 17:12:34.903" endtime="20230612 17:12:35.123"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:34.903" endtime="20230612 17:12:35.124"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.127" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[2]' contains exact text 'True 5G'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.124" endtime="20230612 17:12:35.166"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.124" endtime="20230612 17:12:35.166"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.169" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[3]' contains exact text 'JioFiber'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.166" endtime="20230612 17:12:35.204"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.166" endtime="20230612 17:12:35.204"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.209" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[4]' contains exact text 'Business'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.205" endtime="20230612 17:12:35.438"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.205" endtime="20230612 17:12:35.438"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.442" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[5]' contains exact text 'Shop'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.439" endtime="20230612 17:12:35.586"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.438" endtime="20230612 17:12:35.586"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.589" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[6]' contains exact text 'Apps'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.587" endtime="20230612 17:12:35.693"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.586" endtime="20230612 17:12:35.693"/>
+</iter>
+<iter>
+<var name="${content}">6</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:35.696" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[7]' contains exact text 'Support'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.694" endtime="20230612 17:12:35.839"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.694" endtime="20230612 17:12:35.839"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:34.902" endtime="20230612 17:12:35.839"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:34.871" endtime="20230612 17:12:35.839"/>
+</kw>
+<kw name="Going to Fiber" library="fiberr">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>JioFiber</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:35.842" level="INFO">Clicking link 'JioFiber'.</msg>
+<status status="PASS" starttime="20230612 17:12:35.841" endtime="20230612 17:12:37.299"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:35.840" endtime="20230612 17:12:37.300"/>
+</kw>
+<kw name="Validate Fiber URL" library="fiberr">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${FIBERURL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230612 17:12:37.592" level="INFO">Current location is 'https://www.jio.com/fiber'.</msg>
+<status status="PASS" starttime="20230612 17:12:37.302" endtime="20230612 17:12:37.592"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.301" endtime="20230612 17:12:37.592"/>
+</kw>
+<kw name="Validate Subnavbar" library="fiberr">
+<kw name="Reading Data of Fiber Page from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet4</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:37.594" endtime="20230612 17:12:37.677"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${fibersubnavbarcontent}</var>
+<arg>1</arg>
+<arg>1</arg>
+<arg>Sheet4</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:37.678" level="INFO">${fibersubnavbarcontent} = Discover;Prepaid;Postpaid;Get JioFiber;Recharge;Pay Bills;Services</msg>
+<status status="PASS" starttime="20230612 17:12:37.678" endtime="20230612 17:12:37.678"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${fibersubnavbarcontent}</var>
+<arg>${fibersubnavbarcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:37.679" level="INFO">${fibersubnavbarcontent} = ['Discover', 'Prepaid', 'Postpaid', 'Get JioFiber', 'Recharge', 'Pay Bills', 'Services']</msg>
+<status status="PASS" starttime="20230612 17:12:37.679" endtime="20230612 17:12:37.679"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${fibersubnavbarcontent}</arg>
+<arg>${fibersubnavbarcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:37.680" level="INFO">${fibersubnavbarcontent} = ['Discover', 'Prepaid', 'Postpaid', 'Get JioFiber', 'Recharge', 'Pay Bills', 'Services']</msg>
+<status status="PASS" starttime="20230612 17:12:37.679" endtime="20230612 17:12:37.680"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:37.681" endtime="20230612 17:12:37.681"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.594" endtime="20230612 17:12:37.681"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:37.684" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[1]' contains exact text 'Discover'.</msg>
+<status status="PASS" starttime="20230612 17:12:37.682" endtime="20230612 17:12:37.850"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.681" endtime="20230612 17:12:37.850"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:37.855" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[2]' contains exact text 'Prepaid'.</msg>
+<status status="PASS" starttime="20230612 17:12:37.851" endtime="20230612 17:12:37.928"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.850" endtime="20230612 17:12:37.928"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:37.932" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[3]' contains exact text 'Postpaid'.</msg>
+<status status="PASS" starttime="20230612 17:12:37.929" endtime="20230612 17:12:37.983"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.929" endtime="20230612 17:12:37.983"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:37.988" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[4]' contains exact text 'Get JioFiber'.</msg>
+<status status="PASS" starttime="20230612 17:12:37.984" endtime="20230612 17:12:38.044"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:37.983" endtime="20230612 17:12:38.044"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:38.048" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[5]' contains exact text 'Recharge'.</msg>
+<status status="PASS" starttime="20230612 17:12:38.045" endtime="20230612 17:12:38.146"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:38.045" endtime="20230612 17:12:38.146"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:38.150" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[6]' contains exact text 'Pay Bills'.</msg>
+<status status="PASS" starttime="20230612 17:12:38.146" endtime="20230612 17:12:38.187"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:38.146" endtime="20230612 17:12:38.187"/>
+</iter>
+<iter>
+<var name="${content}">6</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="JioFiber"]//descendant::a[${content+1}]</arg>
+<arg>${fibersubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:38.191" level="INFO">Verifying element 'xpath://nav[@parent-attr="JioFiber"]//descendant::a[7]' contains exact text 'Services'.</msg>
+<status status="PASS" starttime="20230612 17:12:38.188" endtime="20230612 17:12:38.234"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:38.188" endtime="20230612 17:12:38.234"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:37.681" endtime="20230612 17:12:38.234"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:37.593" endtime="20230612 17:12:38.235"/>
+</kw>
+<kw name="Going to Prepaid" library="fiberr">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>xpath:(//a[@parent-attr='JioFiber'])[2]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:38.238" level="INFO">Clicking link 'xpath:(//a[@parent-attr='JioFiber'])[2]'.</msg>
+<status status="PASS" starttime="20230612 17:12:38.237" endtime="20230612 17:12:50.321"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:38.236" endtime="20230612 17:12:50.321"/>
+</kw>
+<kw name="Validate Prepaid of Fiber" library="fiberr">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${FiberPrepaid}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230612 17:12:50.329" level="INFO">Current location is 'https://www.jio.com/selfcare/plans/fiber/fiber-prepaid-plans-home/'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.322" endtime="20230612 17:12:50.329"/>
+</kw>
+<kw name="Reading Data of Prepaid Page of Fiber from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet4</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:50.330" endtime="20230612 17:12:50.350"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${fiberprepaidcontent}</var>
+<arg>2</arg>
+<arg>1</arg>
+<arg>Sheet4</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:50.351" level="INFO">${fiberprepaidcontent} = Annual;Semi-Annual;Quarterly;Monthly;ISD;Top-up;Data Sachet</msg>
+<status status="PASS" starttime="20230612 17:12:50.350" endtime="20230612 17:12:50.351"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${fiberprepaidcontent}</var>
+<arg>${fiberprepaidcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:50.352" level="INFO">${fiberprepaidcontent} = ['Annual', 'Semi-Annual', 'Quarterly', 'Monthly', 'ISD', 'Top-up', 'Data Sachet']</msg>
+<status status="PASS" starttime="20230612 17:12:50.351" endtime="20230612 17:12:50.352"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${fiberprepaidcontent}</arg>
+<arg>${fiberprepaidcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:50.353" level="INFO">${fiberprepaidcontent} = ['Annual', 'Semi-Annual', 'Quarterly', 'Monthly', 'ISD', 'Top-up', 'Data Sachet']</msg>
+<status status="PASS" starttime="20230612 17:12:50.353" endtime="20230612 17:12:50.353"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:50.353" endtime="20230612 17:12:50.353"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.330" endtime="20230612 17:12:50.354"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.356" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[1]' contains exact text 'Annual'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.354" endtime="20230612 17:12:50.392"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.354" endtime="20230612 17:12:50.392"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.395" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[2]' contains exact text 'Semi-Annual'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.393" endtime="20230612 17:12:50.427"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.393" endtime="20230612 17:12:50.427"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.429" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[3]' contains exact text 'Quarterly'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.427" endtime="20230612 17:12:50.460"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.427" endtime="20230612 17:12:50.460"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.464" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[4]' contains exact text 'Monthly'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.461" endtime="20230612 17:12:50.495"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.461" endtime="20230612 17:12:50.495"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.498" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[5]' contains exact text 'ISD'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.496" endtime="20230612 17:12:50.530"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.496" endtime="20230612 17:12:50.530"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.532" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[6]' contains exact text 'Top-up'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.530" endtime="20230612 17:12:50.563"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.530" endtime="20230612 17:12:50.563"/>
+</iter>
+<iter>
+<var name="${content}">6</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[${content+1}]</arg>
+<arg>${fiberprepaidcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:50.566" level="INFO">Verifying element 'xpath://section[@class='fiber-prepaid-plans_flexDisplay__2MPQD j-container l-layout--flex']//descendant::button[7]' contains exact text 'Data Sachet'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.563" endtime="20230612 17:12:50.594"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.563" endtime="20230612 17:12:50.594"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:50.354" endtime="20230612 17:12:50.594"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:50.322" endtime="20230612 17:12:50.594"/>
+</kw>
+<kw name="Going to Quarterly" library="fiberr">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>Quarterly</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:50.597" level="INFO">Clicking button 'Quarterly'.</msg>
+<status status="PASS" starttime="20230612 17:12:50.596" endtime="20230612 17:12:51.951"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:50.595" endtime="20230612 17:12:51.951"/>
+</kw>
+<kw name="Text Validation" library="fiberr">
+<kw name="Reading Text from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet5</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:51.953" endtime="20230612 17:12:51.972"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${TextData}</var>
+<arg>7</arg>
+<arg>1</arg>
+<arg>Sheet5</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:51.973" level="INFO">${TextData} = 30 Mbps;100 Mbps;150 Mbps;300 Mbps;500 Mbps;1 Gbps</msg>
+<status status="PASS" starttime="20230612 17:12:51.972" endtime="20230612 17:12:51.973"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${TextData}</var>
+<arg>${TextData}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:51.974" level="INFO">${TextData} = ['30 Mbps', '100 Mbps', '150 Mbps', '300 Mbps', '500 Mbps', '1 Gbps']</msg>
+<status status="PASS" starttime="20230612 17:12:51.973" endtime="20230612 17:12:51.974"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${TextData}</arg>
+<arg>${TextData}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:51.974" level="INFO">${TextData} = ['30 Mbps', '100 Mbps', '150 Mbps', '300 Mbps', '500 Mbps', '1 Gbps']</msg>
+<status status="PASS" starttime="20230612 17:12:51.974" endtime="20230612 17:12:51.974"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:51.975" endtime="20230612 17:12:51.975"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:51.953" endtime="20230612 17:12:51.975"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>6</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.060" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[1]' contains text '30 Mbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:51.976" endtime="20230612 17:12:52.060"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:51.976" endtime="20230612 17:12:52.060"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.093" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[2]' contains text '100 Mbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.061" endtime="20230612 17:12:52.093"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.060" endtime="20230612 17:12:52.094"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.127" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[3]' contains text '150 Mbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.094" endtime="20230612 17:12:52.127"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.094" endtime="20230612 17:12:52.127"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.163" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[4]' contains text '300 Mbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.128" endtime="20230612 17:12:52.163"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.128" endtime="20230612 17:12:52.163"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.198" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[5]' contains text '500 Mbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.163" endtime="20230612 17:12:52.198"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.163" endtime="20230612 17:12:52.198"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[${i+1}]</arg>
+<arg>${TextData}[${i}]</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230612 17:12:52.233" level="INFO">Element 'xpath:(//div[@class="Subcategory_heading__3Y18a j-text j-text-heading-m"])[6]' contains text '1 Gbps'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.199" endtime="20230612 17:12:52.233"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.199" endtime="20230612 17:12:52.233"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:51.975" endtime="20230612 17:12:52.233"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:51.952" endtime="20230612 17:12:52.233"/>
+</kw>
+<kw name="Filter button &amp; text validation" library="fiberr">
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>Other Prepaid plans</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20230612 17:12:52.342" level="INFO">Current page contains button 'Other Prepaid plans'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.235" endtime="20230612 17:12:52.342"/>
+</kw>
+<kw name="Page Should Contain Button" library="SeleniumLibrary">
+<arg>xpath://button[@class="j-button j-button-size__large secondary icon-primary icon-only"]</arg>
+<doc>Verifies button ``locator`` is found from current page.</doc>
+<msg timestamp="20230612 17:12:52.544" level="INFO">Current page contains button 'xpath://button[@class="j-button j-button-size__large secondary icon-primary icon-only"]'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.342" endtime="20230612 17:12:52.544"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath= //h1[@class='Filter_category__2vFb8 j-text j-text-heading-l']['Quarterly']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:52.563" level="INFO">Current page contains element 'xpath= //h1[@class='Filter_category__2vFb8 j-text j-text-heading-l']['Quarterly']'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.544" endtime="20230612 17:12:52.563"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath: //div[@class='changeCategory_moreInfo__2QPjV j-text j-text-heading-l']['Other Prepaid plans']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:52.584" level="INFO">Current page contains element 'xpath: //div[@class='changeCategory_moreInfo__2QPjV j-text j-text-heading-l']['Other Prepaid plans']'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.564" endtime="20230612 17:12:52.584"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath://div[@class='MoreInformation_moreInfo__2qAx3 j-text j-text-heading-s']['More information']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:52.605" level="INFO">Current page contains element 'xpath://div[@class='MoreInformation_moreInfo__2qAx3 j-text j-text-heading-s']['More information']'.</msg>
+<status status="PASS" starttime="20230612 17:12:52.585" endtime="20230612 17:12:52.605"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.234" endtime="20230612 17:12:52.605"/>
+</kw>
+<kw name="Verificattion of Plan card" library="fiberr">
+<kw name="Verify content of plans cards using the excel file" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet5</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:52.608" endtime="20230612 17:12:52.621"/>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<var>${rowData}</var>
+<arg>1</arg>
+<arg>0</arg>
+<arg>7</arg>
+<arg>Sheet5</arg>
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<msg timestamp="20230612 17:12:52.625" level="INFO">${rowData} = ['₹\n1197\n+GST\n₹399 x 3 months\nVALIDITY\n90 Days\nDATA\nUnlimited @30 Mbps\nRecharge\nView details', '₹\n2097\n+GST\n₹699 x 3 months\nVALIDITY\n90 Days\nDATA\nUnlimited @100 Mbps\nRecharge\nView de...</msg>
+<status status="PASS" starttime="20230612 17:12:52.622" endtime="20230612 17:12:52.625"/>
+</kw>
+<kw name="Read Excel Row" library="ExcelLibrary">
+<var>${subscriptionData}</var>
+<arg>4</arg>
+<arg>0</arg>
+<arg>7</arg>
+<arg>Sheet5</arg>
+<doc>Returns content of a row from the current sheet of the document.</doc>
+<msg timestamp="20230612 17:12:52.626" level="INFO">${subscriptionData} = [False, False, True, True, True, True, True]</msg>
+<status status="PASS" starttime="20230612 17:12:52.625" endtime="20230612 17:12:52.626"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${rowData}</arg>
+<arg>${rowData}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:52.627" level="INFO">${rowData} = ['₹\n1197\n+GST\n₹399 x 3 months\nVALIDITY\n90 Days\nDATA\nUnlimited @30 Mbps\nRecharge\nView details', '₹\n2097\n+GST\n₹699 x 3 months\nVALIDITY\n90 Days\nDATA\nUnlimited @100 Mbps\nRecharge\nView de...</msg>
+<status status="PASS" starttime="20230612 17:12:52.626" endtime="20230612 17:12:52.627"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${subscriptionData}</arg>
+<arg>${subscriptionData}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:52.627" level="INFO">${subscriptionData} = [False, False, True, True, True, True, True]</msg>
+<status status="PASS" starttime="20230612 17:12:52.627" endtime="20230612 17:12:52.627"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:52.627" endtime="20230612 17:12:52.627"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.607" endtime="20230612 17:12:52.628"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${i}">0</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:52.628" endtime="20230612 17:12:52.931"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:52.979" level="INFO">${textOfPlanCards} = ₹
+1197
++GST
+₹399 x 3 months
+VALIDITY
+90 Days
+DATA
+Unlimited @30 Mbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:52.931" endtime="20230612 17:12:52.979"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:52.979" endtime="20230612 17:12:52.980"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.260" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 17:12:53.260" level="FAIL">Page should have contained element 'xpath=(//div[contains(@class, 'planDetailsCard')])[1]//div[@class='Details_subscriptionStyle__1ibDI']' but did not.</msg>
+<status status="FAIL" starttime="20230612 17:12:52.981" endtime="20230612 17:12:53.272"/>
+</kw>
+<status status="FAIL" starttime="20230612 17:12:52.980" endtime="20230612 17:12:53.273"/>
+</kw>
+<msg timestamp="20230612 17:12:53.273" level="INFO">${check} = False</msg>
+<status status="PASS" starttime="20230612 17:12:52.980" endtime="20230612 17:12:53.273"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:53.273" endtime="20230612 17:12:53.275"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:53.275" endtime="20230612 17:12:53.276"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.305" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[1]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:53.278" endtime="20230612 17:12:53.305"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.328" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[1]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:53.305" endtime="20230612 17:12:53.328"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:53.276" endtime="20230612 17:12:53.328"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:52.628" endtime="20230612 17:12:53.328"/>
+</iter>
+<iter>
+<var name="${i}">1</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:53.329" endtime="20230612 17:12:53.637"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:53.693" level="INFO">${textOfPlanCards} = ₹
+2097
++GST
+₹699 x 3 months
+VALIDITY
+90 Days
+DATA
+Unlimited @100 Mbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:53.638" endtime="20230612 17:12:53.693"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:53.693" endtime="20230612 17:12:53.694"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.921" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230612 17:12:53.921" level="FAIL">Page should have contained element 'xpath=(//div[contains(@class, 'planDetailsCard')])[2]//div[@class='Details_subscriptionStyle__1ibDI']' but did not.</msg>
+<status status="FAIL" starttime="20230612 17:12:53.695" endtime="20230612 17:12:53.923"/>
+</kw>
+<status status="FAIL" starttime="20230612 17:12:53.694" endtime="20230612 17:12:53.923"/>
+</kw>
+<msg timestamp="20230612 17:12:53.924" level="INFO">${check} = False</msg>
+<status status="PASS" starttime="20230612 17:12:53.694" endtime="20230612 17:12:53.924"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:53.924" endtime="20230612 17:12:53.925"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:53.925" endtime="20230612 17:12:53.925"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.949" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[2]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:53.926" endtime="20230612 17:12:53.949"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:53.971" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[2]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:53.950" endtime="20230612 17:12:53.971"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:53.925" endtime="20230612 17:12:53.972"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:53.328" endtime="20230612 17:12:53.972"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:53.972" endtime="20230612 17:12:54.285"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:54.344" level="INFO">${textOfPlanCards} = ₹
+2997
++GST
+₹999 x 3 months
++14 more
+VALIDITY
+90 Days
+DATA
+Unlimited @150 Mbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:54.285" endtime="20230612 17:12:54.344"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:54.344" endtime="20230612 17:12:54.345"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.371" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[3]//div[@class='Details_subscriptionStyle__1ibDI']'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.346" endtime="20230612 17:12:54.371"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.346" endtime="20230612 17:12:54.371"/>
+</kw>
+<msg timestamp="20230612 17:12:54.372" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20230612 17:12:54.345" endtime="20230612 17:12:54.372"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:54.372" endtime="20230612 17:12:54.373"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:54.373" endtime="20230612 17:12:54.374"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.401" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[3]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.375" endtime="20230612 17:12:54.401"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.427" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[3]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.401" endtime="20230612 17:12:54.427"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.374" endtime="20230612 17:12:54.428"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:53.972" endtime="20230612 17:12:54.428"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:54.428" endtime="20230612 17:12:54.739"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:54.790" level="INFO">${textOfPlanCards} = ₹
+4497
++GST
+₹1499 x 3 months
++15 more
+VALIDITY
+90 Days
+DATA
+Unlimited @300 Mbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:54.739" endtime="20230612 17:12:54.790"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:54.790" endtime="20230612 17:12:54.791"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.813" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[4]//div[@class='Details_subscriptionStyle__1ibDI']'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.792" endtime="20230612 17:12:54.813"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.791" endtime="20230612 17:12:54.813"/>
+</kw>
+<msg timestamp="20230612 17:12:54.813" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20230612 17:12:54.791" endtime="20230612 17:12:54.813"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:54.813" endtime="20230612 17:12:54.814"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:54.814" endtime="20230612 17:12:54.815"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.837" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[4]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.816" endtime="20230612 17:12:54.837"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:54.860" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[4]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:54.837" endtime="20230612 17:12:54.860"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.815" endtime="20230612 17:12:54.860"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.428" endtime="20230612 17:12:54.860"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:54.861" endtime="20230612 17:12:55.175"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:55.226" level="INFO">${textOfPlanCards} = ₹
+7497
++GST
+₹2499 x 3 months
++15 more
+VALIDITY
+90 Days
+DATA
+Unlimited @500 Mbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:55.176" endtime="20230612 17:12:55.226"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:55.226" endtime="20230612 17:12:55.227"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.252" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[5]//div[@class='Details_subscriptionStyle__1ibDI']'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.228" endtime="20230612 17:12:55.252"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.227" endtime="20230612 17:12:55.252"/>
+</kw>
+<msg timestamp="20230612 17:12:55.252" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20230612 17:12:55.227" endtime="20230612 17:12:55.252"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:55.253" endtime="20230612 17:12:55.255"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:55.255" endtime="20230612 17:12:55.256"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.285" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[5]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.257" endtime="20230612 17:12:55.285"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.312" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[5]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.286" endtime="20230612 17:12:55.312"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.256" endtime="20230612 17:12:55.312"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:54.860" endtime="20230612 17:12:55.312"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:55.313" endtime="20230612 17:12:55.612"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:55.662" level="INFO">${textOfPlanCards} = ₹
+11997
++GST
+₹3999 x 3 months
++15 more
+VALIDITY
+90 Days
+DATA
+Unlimited @1Gbps
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:55.613" endtime="20230612 17:12:55.662"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:55.663" endtime="20230612 17:12:55.663"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.686" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[6]//div[@class='Details_subscriptionStyle__1ibDI']'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.664" endtime="20230612 17:12:55.686"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.663" endtime="20230612 17:12:55.687"/>
+</kw>
+<msg timestamp="20230612 17:12:55.687" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20230612 17:12:55.663" endtime="20230612 17:12:55.687"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:55.687" endtime="20230612 17:12:55.688"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:55.688" endtime="20230612 17:12:55.689"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.746" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[6]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.690" endtime="20230612 17:12:55.746"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:55.783" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[6]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:55.746" endtime="20230612 17:12:55.783"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.689" endtime="20230612 17:12:55.783"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.313" endtime="20230612 17:12:55.783"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20230612 17:12:55.783" endtime="20230612 17:12:56.080"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${textOfPlanCards}</var>
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${i+1}]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230612 17:12:56.172" level="INFO">${textOfPlanCards} = ₹
+25497
++GST
+₹8499 x 3 months
++15 more
+VALIDITY
+90 Days
+DATA
+6600 GB @1Gbps per month
+Recharge
+View details</msg>
+<status status="PASS" starttime="20230612 17:12:56.081" endtime="20230612 17:12:56.172"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${textOfPlanCards}</arg>
+<arg>${rowData}[${i}]</arg>
+<arg>strip_spaces=True</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230612 17:12:56.172" endtime="20230612 17:12:56.173"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${check}</var>
+<arg>Verify if subscription element is present on plan cards</arg>
+<arg>${i+1}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verify if subscription element is present on plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[@class='Details_subscriptionStyle__1ibDI']</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:56.195" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[7]//div[@class='Details_subscriptionStyle__1ibDI']'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.175" endtime="20230612 17:12:56.195"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.174" endtime="20230612 17:12:56.195"/>
+</kw>
+<msg timestamp="20230612 17:12:56.195" level="INFO">${check} = True</msg>
+<status status="PASS" starttime="20230612 17:12:56.173" endtime="20230612 17:12:56.195"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${check}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230612 17:12:56.196" endtime="20230612 17:12:56.196"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${check}</arg>
+<arg>${subscriptionData}[${i}]</arg>
+<arg>ignore_case=True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230612 17:12:56.197" endtime="20230612 17:12:56.197"/>
+</kw>
+<kw name="Verify if the recharge and view details is present on the plan cards" library="fiberr">
+<arg>${i+1}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'Recharge')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:56.220" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[7]//div[contains(text(), 'Recharge')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.199" endtime="20230612 17:12:56.220"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>xpath=(//div[contains(@class, 'planDetailsCard')])[${index}]//div[contains(text(), 'View details')]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230612 17:12:56.241" level="INFO">Current page contains element 'xpath=(//div[contains(@class, 'planDetailsCard')])[7]//div[contains(text(), 'View details')]'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.221" endtime="20230612 17:12:56.241"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.197" endtime="20230612 17:12:56.241"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:55.783" endtime="20230612 17:12:56.241"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:52.628" endtime="20230612 17:12:56.241"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:52.607" endtime="20230612 17:12:56.241"/>
+</kw>
+<kw name="Validate Other Prepaid Plans" library="fiberr">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${OtherPlan}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230612 17:12:56.249" level="INFO">Current location is 'https://www.jio.com/selfcare/plans/fiber/fiber-prepaid-plans-list/?category=Quarterly&amp;categoryId=UXVhcnRlcmx5'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.242" endtime="20230612 17:12:56.249"/>
+</kw>
+<kw name="Reading Data of other plan" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet4</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:56.250" endtime="20230612 17:12:56.265"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${otherprepaidplan}</var>
+<arg>3</arg>
+<arg>1</arg>
+<arg>Sheet4</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:56.266" level="INFO">${otherprepaidplan} = Annual;Semi-Annual;Monthly;ISD;Top-up;Data Sachet</msg>
+<status status="PASS" starttime="20230612 17:12:56.265" endtime="20230612 17:12:56.266"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${otherprepaidplan}</var>
+<arg>${otherprepaidplan}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:56.266" level="INFO">${otherprepaidplan} = ['Annual', 'Semi-Annual', 'Monthly', 'ISD', 'Top-up', 'Data Sachet']</msg>
+<status status="PASS" starttime="20230612 17:12:56.266" endtime="20230612 17:12:56.267"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${otherprepaidplan}</arg>
+<arg>${otherprepaidplan}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:56.267" level="INFO">${otherprepaidplan} = ['Annual', 'Semi-Annual', 'Monthly', 'ISD', 'Top-up', 'Data Sachet']</msg>
+<status status="PASS" starttime="20230612 17:12:56.267" endtime="20230612 17:12:56.267"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:56.267" endtime="20230612 17:12:56.268"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.249" endtime="20230612 17:12:56.268"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>6</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.271" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[1]' contains exact text 'Annual'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.268" endtime="20230612 17:12:56.305"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.268" endtime="20230612 17:12:56.305"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.308" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[2]' contains exact text 'Semi-Annual'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.305" endtime="20230612 17:12:56.354"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.305" endtime="20230612 17:12:56.355"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.359" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[3]' contains exact text 'Monthly'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.355" endtime="20230612 17:12:56.414"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.355" endtime="20230612 17:12:56.414"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.418" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[4]' contains exact text 'ISD'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.415" endtime="20230612 17:12:56.461"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.414" endtime="20230612 17:12:56.461"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.465" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[5]' contains exact text 'Top-up'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.462" endtime="20230612 17:12:56.505"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.461" endtime="20230612 17:12:56.505"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[${content+1}]</arg>
+<arg>${otherprepaidplan[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.508" level="INFO">Verifying element 'xpath:(//section[@class='changeCategory_flexDisplay__1bVGH j-container l-layout--flex'])//descendant::button[6]' contains exact text 'Data Sachet'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.506" endtime="20230612 17:12:56.546"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.505" endtime="20230612 17:12:56.546"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:56.268" endtime="20230612 17:12:56.546"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:56.242" endtime="20230612 17:12:56.546"/>
+</kw>
+<kw name="Validate More info" library="fiberr">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${OtherPlan}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230612 17:12:56.556" level="INFO">Current location is 'https://www.jio.com/selfcare/plans/fiber/fiber-prepaid-plans-list/?category=Quarterly&amp;categoryId=UXVhcnRlcmx5'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.548" endtime="20230612 17:12:56.557"/>
+</kw>
+<kw name="Reading Data of more info from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>../../Resources/workbook.xlsx</arg>
+<arg>Sheet4</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230612 17:12:56.557" endtime="20230612 17:12:56.578"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${moreinfo}</var>
+<arg>4</arg>
+<arg>1</arg>
+<arg>Sheet4</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230612 17:12:56.579" level="INFO">${moreinfo} = Plan Voucher;ISD Packs;T&amp;C</msg>
+<status status="PASS" starttime="20230612 17:12:56.578" endtime="20230612 17:12:56.579"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${moreinfo}</var>
+<arg>${moreinfo}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230612 17:12:56.579" level="INFO">${moreinfo} = ['Plan Voucher', 'ISD Packs', 'T&amp;C']</msg>
+<status status="PASS" starttime="20230612 17:12:56.579" endtime="20230612 17:12:56.580"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${moreinfo}</arg>
+<arg>${moreinfo}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230612 17:12:56.580" level="INFO">${moreinfo} = ['Plan Voucher', 'ISD Packs', 'T&amp;C']</msg>
+<status status="PASS" starttime="20230612 17:12:56.580" endtime="20230612 17:12:56.580"/>
+</kw>
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230612 17:12:56.580" endtime="20230612 17:12:56.581"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.557" endtime="20230612 17:12:56.581"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>3</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[${content+1}]</arg>
+<arg>${moreinfo[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.583" level="INFO">Verifying element 'xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[1]' contains exact text 'Plan Voucher'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.581" endtime="20230612 17:12:56.616"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.581" endtime="20230612 17:12:56.617"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[${content+1}]</arg>
+<arg>${moreinfo[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.619" level="INFO">Verifying element 'xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[2]' contains exact text 'ISD Packs'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.617" endtime="20230612 17:12:56.650"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.617" endtime="20230612 17:12:56.650"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[${content+1}]</arg>
+<arg>${moreinfo[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230612 17:12:56.653" level="INFO">Verifying element 'xpath:(//div[@class='MoreInformation_buttonCont__1bLIb'])//descendant::button[3]' contains exact text 'T&amp;C'.</msg>
+<status status="PASS" starttime="20230612 17:12:56.651" endtime="20230612 17:12:56.685"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.651" endtime="20230612 17:12:56.685"/>
+</iter>
+<status status="PASS" starttime="20230612 17:12:56.581" endtime="20230612 17:12:56.685"/>
+</for>
+<status status="PASS" starttime="20230612 17:12:56.547" endtime="20230612 17:12:56.686"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:34.869" endtime="20230612 17:12:56.686"/>
+</test>
+<kw name="End Test" library="Common" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230612 17:13:01.732" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230612 17:12:56.689" endtime="20230612 17:13:01.732"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230612 17:13:01.732" endtime="20230612 17:13:06.559"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:56.689" endtime="20230612 17:13:06.559"/>
+</kw>
+<status status="PASS" starttime="20230612 17:12:24.606" endtime="20230612 17:13:06.559"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Fiber main">Fiber main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230619 11:40:05.418" rpa="false" schemaversion="3">
+<suite id="s1" name="Apps Main" source="C:\Users\Kirnesh.Walunj\OneDrive - Reliance Corporate IT Park Limited\Desktop\Demo Jio.com automation\Tests\Apps\apps_main.robot">
+<kw name="Begin Web Test" library="Common" type="SETUP">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>filename=../../Resources/workbook.xlsx</arg>
+<arg>doc_id=JioWeb</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230619 11:40:06.037" endtime="20230619 11:40:06.045"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230619 11:40:06.046" level="INFO">Opening browser 'edge' to base url 'about:blank'.</msg>
+<msg timestamp="20230619 11:40:06.055" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230619 11:40:06.046" endtime="20230619 11:40:08.555"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230619 11:40:08.555" endtime="20230619 11:40:08.680"/>
+</kw>
+<kw name="Log Suite Start Time" library="Common">
+<kw name="Get Current Date" library="DateTime">
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20230619 11:40:08.681" level="INFO">${timestamp} = 2023-06-19 11:40:08</msg>
+<status status="PASS" starttime="20230619 11:40:08.681" endtime="20230619 11:40:08.681"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test suite started at: ${timestamp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230619 11:40:08.681" level="INFO">Test suite started at: 2023-06-19 11:40:08</msg>
+<status status="PASS" starttime="20230619 11:40:08.681" endtime="20230619 11:40:08.681"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:08.680" endtime="20230619 11:40:08.681"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:06.037" endtime="20230619 11:40:08.681"/>
+</kw>
+<test id="s1-t1" name="Content Validation of Homepage" line="18">
+<kw name="Verifying Content of Navbar" library="Homie">
+<kw name="Visit Jio.com" library="Common">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230619 11:40:08.683" level="INFO">Opening url 'https://www.jio.com/'</msg>
+<status status="PASS" starttime="20230619 11:40:08.683" endtime="20230619 11:40:10.908"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:11.408" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:10.908" endtime="20230619 11:40:11.408"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:08.683" endtime="20230619 11:40:11.409"/>
+</kw>
+<kw name="Reading Data of Home Page from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>C:/Users/Kirnesh.Walunj/OneDrive - Reliance Corporate IT Park Limited/Desktop/Demo Jio.com automation/Resources/workbook.xlsx</arg>
+<arg>Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230619 11:40:11.410" endtime="20230619 11:40:11.423"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${navbarcontent}</var>
+<arg>1</arg>
+<arg>1</arg>
+<arg>Sheet1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230619 11:40:11.424" level="INFO">${navbarcontent} = Mobile;True 5G;JioFiber;Business;Shop;Apps;Support</msg>
+<status status="PASS" starttime="20230619 11:40:11.423" endtime="20230619 11:40:11.424"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230619 11:40:11.424" endtime="20230619 11:40:11.425"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${navbarcontent}</var>
+<arg>${navbarcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230619 11:40:11.425" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230619 11:40:11.425" endtime="20230619 11:40:11.425"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230619 11:40:11.426" endtime="20230619 11:40:11.426"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<arg>${navbarcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230619 11:40:11.427" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230619 11:40:11.426" endtime="20230619 11:40:11.427"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:11.409" endtime="20230619 11:40:11.427"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:11.429" endtime="20230619 11:40:11.664"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:11.965" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:11.665" endtime="20230619 11:40:11.965"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:12.083" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[1]' contains text 'Mobile'.</msg>
+<status status="PASS" starttime="20230619 11:40:11.966" endtime="20230619 11:40:12.083"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:11.965" endtime="20230619 11:40:12.083"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:11.427" endtime="20230619 11:40:12.084"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:11.427" endtime="20230619 11:40:12.084"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:12.086" endtime="20230619 11:40:12.209"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:12.510" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:12.209" endtime="20230619 11:40:12.510"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:12.607" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[2]' contains text 'True 5G'.</msg>
+<status status="PASS" starttime="20230619 11:40:12.511" endtime="20230619 11:40:12.607"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:12.510" endtime="20230619 11:40:12.607"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:12.084" endtime="20230619 11:40:12.608"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:12.084" endtime="20230619 11:40:12.608"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:12.609" endtime="20230619 11:40:12.708"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:13.009" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:12.708" endtime="20230619 11:40:13.009"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:13.099" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[3]' contains text 'JioFiber'.</msg>
+<status status="PASS" starttime="20230619 11:40:13.010" endtime="20230619 11:40:13.099"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.010" endtime="20230619 11:40:13.099"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:12.608" endtime="20230619 11:40:13.099"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:12.608" endtime="20230619 11:40:13.099"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:13.101" endtime="20230619 11:40:13.198"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:13.499" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:13.199" endtime="20230619 11:40:13.499"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:13.584" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[4]' contains text 'Business'.</msg>
+<status status="PASS" starttime="20230619 11:40:13.499" endtime="20230619 11:40:13.584"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.499" endtime="20230619 11:40:13.584"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.100" endtime="20230619 11:40:13.584"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.100" endtime="20230619 11:40:13.584"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:13.585" endtime="20230619 11:40:13.671"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:13.973" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:13.671" endtime="20230619 11:40:13.973"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:14.065" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[5]' contains text 'Shop'.</msg>
+<status status="PASS" starttime="20230619 11:40:13.973" endtime="20230619 11:40:14.065"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.973" endtime="20230619 11:40:14.065"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.584" endtime="20230619 11:40:14.066"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:13.584" endtime="20230619 11:40:14.066"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:14.067" endtime="20230619 11:40:14.164"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:14.465" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:14.164" endtime="20230619 11:40:14.465"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:14.554" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[6]' contains text 'Apps'.</msg>
+<status status="PASS" starttime="20230619 11:40:14.465" endtime="20230619 11:40:14.554"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.465" endtime="20230619 11:40:14.554"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.066" endtime="20230619 11:40:14.554"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.066" endtime="20230619 11:40:14.554"/>
+</iter>
+<iter>
+<var name="${content}">6</var>
+<kw name="Wait For And Verify Content" library="Common">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230619 11:40:14.556" endtime="20230619 11:40:14.653"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>300ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:14.954" level="INFO">Slept 300 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:14.654" endtime="20230619 11:40:14.955"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Element Should Contain</arg>
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${str}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20230619 11:40:15.046" level="INFO">Element 'xpath://nav[@id='firstlevel-nav']//descendant::a[7]' contains text 'Support'.</msg>
+<status status="PASS" starttime="20230619 11:40:14.955" endtime="20230619 11:40:15.046"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.955" endtime="20230619 11:40:15.046"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.554" endtime="20230619 11:40:15.046"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:14.554" endtime="20230619 11:40:15.047"/>
+</iter>
+<status status="PASS" starttime="20230619 11:40:11.427" endtime="20230619 11:40:15.047"/>
+</for>
+<status status="PASS" starttime="20230619 11:40:08.682" endtime="20230619 11:40:15.047"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:08.681" endtime="20230619 11:40:15.047"/>
+</test>
+<test id="s1-t2" name="Go to Apps section" line="21">
+<kw name="Going to Apps" library="appp">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>(//section[a])[6]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230619 11:40:15.049" level="INFO">Clicking element '(//section[a])[6]'.</msg>
+<status status="PASS" starttime="20230619 11:40:15.049" endtime="20230619 11:40:17.987"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:15.049" endtime="20230619 11:40:17.987"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:15.048" endtime="20230619 11:40:17.988"/>
+</test>
+<test id="s1-t3" name="Validation of Apps Page" line="25">
+<kw name="Validate Apps URL" library="appp">
+<kw name="URL Validation" library="Common">
+<arg>${APPSURL}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>200ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230619 11:40:18.192" level="INFO">Slept 200 milliseconds</msg>
+<status status="PASS" starttime="20230619 11:40:17.991" endtime="20230619 11:40:18.192"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20230619 11:40:18.198" level="INFO">${current_url} = https://www.jio.com/jcms/apps/</msg>
+<status status="PASS" starttime="20230619 11:40:18.192" endtime="20230619 11:40:18.198"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Should Be Equal As Strings</arg>
+<arg>${current_url}</arg>
+<arg>${VURL}</arg>
+<arg>strip_spaces=true</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${VURL}</arg>
+<arg>strip_spaces=true</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230619 11:40:18.198" endtime="20230619 11:40:18.199"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:18.198" endtime="20230619 11:40:18.199"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:17.990" endtime="20230619 11:40:18.199"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:17.990" endtime="20230619 11:40:18.199"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:17.989" endtime="20230619 11:40:18.199"/>
+</test>
+<kw name="End Web Test" library="Common" type="TEARDOWN">
+<kw name="Close All Excel Documents" library="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" starttime="20230619 11:40:18.201" endtime="20230619 11:40:18.201"/>
+</kw>
+<kw name="Log Suite End Time" library="Common">
+<kw name="Get Current Date" library="DateTime">
+<var>${timestamp}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20230619 11:40:18.201" level="INFO">${timestamp} = 2023-06-19 11:40:18</msg>
+<status status="PASS" starttime="20230619 11:40:18.201" endtime="20230619 11:40:18.201"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Test suite ended at: ${timestamp}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230619 11:40:18.201" level="INFO">Test suite ended at: 2023-06-19 11:40:18</msg>
+<status status="PASS" starttime="20230619 11:40:18.201" endtime="20230619 11:40:18.201"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:18.201" endtime="20230619 11:40:18.202"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230619 11:40:18.202" endtime="20230619 11:40:21.152"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:18.201" endtime="20230619 11:40:21.152"/>
+</kw>
+<status status="PASS" starttime="20230619 11:40:05.425" endtime="20230619 11:40:21.152"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Apps Main">Apps Main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

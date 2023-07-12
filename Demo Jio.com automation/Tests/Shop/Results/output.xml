@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.3 on win32)" generated="20230602 16:07:26.926" rpa="false" schemaversion="3">
+<suite id="s1" name="Shop main" source="C:\Users\Kirnesh.Walunj\OneDrive - Reliance Corporate IT Park Limited\Desktop\Demo Jio.com automation\Tests\Shop\Shop_main.robot">
+<kw name="Begin Test" library="Common" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.jio.com/</arg>
+<arg>edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230602 16:07:28.797" level="INFO">Opening browser 'edge' to base url 'https://www.jio.com/'.</msg>
+<msg timestamp="20230602 16:07:28.825" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<status status="PASS" starttime="20230602 16:07:28.796" endtime="20230602 16:07:36.559"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>1s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20230602 16:07:36.560" endtime="20230602 16:07:36.560"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230602 16:07:36.560" endtime="20230602 16:07:38.241"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:28.795" endtime="20230602 16:07:38.241"/>
+</kw>
+<test id="s1-t1" name="Content Validation of Homepage" line="16">
+<kw name="Verifying Content of Navbar" library="Homie">
+<kw name="Reading Data of Home Page from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>C:/Users/Kirnesh.Walunj/OneDrive - Reliance Corporate IT Park Limited/Desktop/Demo Jio.com automation/Resources/workbook.xlsx</arg>
+<arg>Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" starttime="20230602 16:07:38.246" endtime="20230602 16:07:38.267"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${navbarcontent}</var>
+<arg>1</arg>
+<arg>1</arg>
+<arg>Sheet1</arg>
+<doc>Returns content of a cell.</doc>
+<msg timestamp="20230602 16:07:38.269" level="INFO">${navbarcontent} = Mobile;True 5G;JioFiber;Business;Shop;Apps;Support</msg>
+<status status="PASS" starttime="20230602 16:07:38.268" endtime="20230602 16:07:38.269"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230602 16:07:38.270" endtime="20230602 16:07:38.271"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${navbarcontent}</var>
+<arg>${navbarcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20230602 16:07:38.272" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230602 16:07:38.271" endtime="20230602 16:07:38.272"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230602 16:07:38.272" endtime="20230602 16:07:38.274"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${navbarcontent}</arg>
+<arg>${navbarcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230602 16:07:38.276" level="INFO">${navbarcontent} = ['Mobile', 'True 5G', 'JioFiber', 'Business', 'Shop', 'Apps', 'Support']</msg>
+<status status="PASS" starttime="20230602 16:07:38.274" endtime="20230602 16:07:38.276"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:38.245" endtime="20230602 16:07:38.276"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>7</value>
+<iter>
+<var name="${content}">0</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:38.282" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[1]' contains exact text 'Mobile'.</msg>
+<status status="PASS" starttime="20230602 16:07:38.278" endtime="20230602 16:07:40.505"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:38.277" endtime="20230602 16:07:40.505"/>
+</iter>
+<iter>
+<var name="${content}">1</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:40.508" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[2]' contains exact text 'True 5G'.</msg>
+<status status="PASS" starttime="20230602 16:07:40.506" endtime="20230602 16:07:42.688"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:40.505" endtime="20230602 16:07:42.688"/>
+</iter>
+<iter>
+<var name="${content}">2</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:42.691" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[3]' contains exact text 'JioFiber'.</msg>
+<status status="PASS" starttime="20230602 16:07:42.688" endtime="20230602 16:07:44.841"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:42.688" endtime="20230602 16:07:44.841"/>
+</iter>
+<iter>
+<var name="${content}">3</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:44.844" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[4]' contains exact text 'Business'.</msg>
+<status status="PASS" starttime="20230602 16:07:44.842" endtime="20230602 16:07:47.003"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:44.841" endtime="20230602 16:07:47.003"/>
+</iter>
+<iter>
+<var name="${content}">4</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:47.009" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[5]' contains exact text 'Shop'.</msg>
+<status status="PASS" starttime="20230602 16:07:47.005" endtime="20230602 16:07:49.134"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:47.003" endtime="20230602 16:07:49.134"/>
+</iter>
+<iter>
+<var name="${content}">5</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:49.139" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[6]' contains exact text 'Apps'.</msg>
+<status status="PASS" starttime="20230602 16:07:49.135" endtime="20230602 16:07:51.270"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:49.134" endtime="20230602 16:07:51.270"/>
+</iter>
+<iter>
+<var name="${content}">6</var>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@id='firstlevel-nav']//descendant::a[${content+1}]</arg>
+<arg>${navbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230602 16:07:51.273" level="INFO">Verifying element 'xpath://nav[@id='firstlevel-nav']//descendant::a[7]' contains exact text 'Support'.</msg>
+<status status="PASS" starttime="20230602 16:07:51.270" endtime="20230602 16:07:53.464"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:51.270" endtime="20230602 16:07:53.464"/>
+</iter>
+<status status="PASS" starttime="20230602 16:07:38.276" endtime="20230602 16:07:53.464"/>
+</for>
+<status status="PASS" starttime="20230602 16:07:38.244" endtime="20230602 16:07:53.465"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:38.242" endtime="20230602 16:07:53.466"/>
+</test>
+<test id="s1-t2" name="Go to Shop section" line="20">
+<kw name="Going to Shop" library="Shopp">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Shop</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230602 16:07:53.471" level="INFO">Clicking link 'Shop'.</msg>
+<status status="PASS" starttime="20230602 16:07:53.470" endtime="20230602 16:07:58.734"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:53.470" endtime="20230602 16:07:58.734"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:53.469" endtime="20230602 16:07:58.735"/>
+</test>
+<test id="s1-t3" name="Validation of Shop Page" line="23">
+<kw name="Validate Apps URL" library="Shopp">
+<kw name="Location Should Be" library="SeleniumLibrary">
+<arg>${SHOPURL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<msg timestamp="20230602 16:07:59.753" level="INFO">Current location is 'https://www.jio.com/shop/homepage'.</msg>
+<status status="PASS" starttime="20230602 16:07:58.739" endtime="20230602 16:07:59.753"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:58.738" endtime="20230602 16:07:59.753"/>
+</kw>
+<kw name="Validate Shop Page Navbar Content" library="Shopp">
+<kw name="Reading Data of Shop Page from Excel" library="ExcelActivity">
+<kw name="Open Excel Document" library="ExcelLibrary">
+<arg>C:\Users\Kirnesh.Walunj\OneDrive - Reliance Corporate IT Park Limited\Desktop\Demo Jio.com automation\Resources\workbook (Autosaved).xlsx</arg>
+<arg>Sheet1</arg>
+<doc>Opens xlsx document file.</doc>
+<msg timestamp="20230602 16:07:59.757" level="FAIL">SuchIdIsExistException: Document with such id Sheet1 is opened.</msg>
+<status status="FAIL" starttime="20230602 16:07:59.756" endtime="20230602 16:07:59.765"/>
+</kw>
+<kw name="Read Excel Cell" library="ExcelLibrary">
+<var>${shopsubnavbarcontent}</var>
+<arg>2</arg>
+<arg>1</arg>
+<arg>Sheet2</arg>
+<doc>Returns content of a cell.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.765" endtime="20230602 16:07:59.766"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${shopsubnavbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.766" endtime="20230602 16:07:59.766"/>
+</kw>
+<kw name="Split String" library="String">
+<var>${shopsubnavbarcontent}</var>
+<arg>${shopsubnavbarcontent}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.766" endtime="20230602 16:07:59.766"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${shopsubnavbarcontent}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.766" endtime="20230602 16:07:59.766"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${shopsubnavbarcontent}</arg>
+<arg>${shopsubnavbarcontent}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.766" endtime="20230602 16:07:59.766"/>
+</kw>
+<status status="FAIL" starttime="20230602 16:07:59.755" endtime="20230602 16:07:59.767"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${content}</var>
+<value>0</value>
+<value>5</value>
+<iter>
+<var name="${content}"/>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>xpath://nav[@parent-attr="Shop"]//descendant::a[${content+1}]</arg>
+<arg>${shopsubnavbarcontent[${content}]}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" starttime="20230602 16:07:59.767" endtime="20230602 16:07:59.767"/>
+</kw>
+<status status="NOT RUN" starttime="20230602 16:07:59.767" endtime="20230602 16:07:59.767"/>
+</iter>
+<status status="NOT RUN" starttime="20230602 16:07:59.767" endtime="20230602 16:07:59.767"/>
+</for>
+<status status="FAIL" starttime="20230602 16:07:59.755" endtime="20230602 16:07:59.768"/>
+</kw>
+<status status="FAIL" starttime="20230602 16:07:58.737" endtime="20230602 16:07:59.768">SuchIdIsExistException: Document with such id Sheet1 is opened.</status>
+</test>
+<kw name="End Test" library="Common" type="TEARDOWN">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230602 16:08:04.775" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230602 16:07:59.773" endtime="20230602 16:08:04.775"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230602 16:08:04.776" endtime="20230602 16:08:08.967"/>
+</kw>
+<status status="PASS" starttime="20230602 16:07:59.772" endtime="20230602 16:08:08.967"/>
+</kw>
+<status status="FAIL" starttime="20230602 16:07:26.940" endtime="20230602 16:08:08.967"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="Shop main">Shop main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
